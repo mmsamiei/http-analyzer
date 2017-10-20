@@ -6,29 +6,32 @@ from tkinter import ttk
 win = tk.Tk()
 win.title("http analyzer")
 url = tk.StringVar()
-url_entered = ttk.Entry(win, width=12, textvariable=url)
-url_entered.grid(row=1, column=0)
-ttk.Label(win, text="Server Information").grid(row=2, column=0)
+url_entered = ttk.Entry(win, width=15, textvariable=url)
+url_entered.grid(row=1, column=0, sticky='W')
+ttk.Label(win, text="Server Information").grid(row=2, column=0, sticky='W')
 server_information_label = ttk.Label(win)
 server_information_label.grid(row=2, column=1)
-ttk.Label(win, text="Allowable Methods").grid(row=3, column=0)
+ttk.Label(win, text="Allowable Methods").grid(row=3, column=0, sticky='W')
 allowable_methods_label = ttk.Label(win)
 allowable_methods_label.grid(row=3, column=1)
-ttk.Label(win, text="cookie information").grid(row=4, column=0)
+ttk.Label(win, text="cookie information").grid(row=4, column=0, sticky='W')
 cookie_information_label = ttk.Label(win)
 cookie_information_label.grid(row=4, column=1)
-ttk.Label(win, text="cache information").grid(row=5, column=0)
+ttk.Label(win, text="cache information").grid(row=5, column=0, sticky='W')
 cache_information_label = ttk.Label(win)
 cache_information_label.grid(row=5, column=1)
-ttk.Label(win, text="Authentication information").grid(row=6, column=0)
+ttk.Label(win, text="Authentication information").grid(row=6, column=0, sticky='W')
 authentication_information_label = ttk.Label(win)
 authentication_information_label.grid(row=6, column=1)
-ttk.Label(win, text="error information").grid(row=6, column=0)
+ttk.Label(win, text="error information").grid(row=7, column=0, sticky='W')
 error_information_label = ttk.Label(win)
-error_information_label.grid(row=6, column=1)
-ttk.Label(win, text="persistent connection?").grid(row=7, column=0)
+error_information_label.grid(row=7, column=1)
+ttk.Label(win, text="persistent connection?").grid(row=8, column=0, sticky='W')
 persistent_connection_label = ttk.Label(win)
-persistent_connection_label.grid(row=7, column=1)
+persistent_connection_label.grid(row=8, column=1)
+
+for child in win.winfo_children():
+    child.grid_configure(padx=10, pady=10)
 
 
 
@@ -103,7 +106,7 @@ data = r2.read()
 
 
 action = ttk.Button(win, text="Submit", command=update)
-action.grid(row=1, column=1)
+action.grid(row=1, column=1, padx=40)
 
 
 
